@@ -1,0 +1,31 @@
+{
+  "name": "odin-nodejs-using-postgresql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node --watch app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rubicon2/odin-nodejs-using-postgresql.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rubicon2/odin-nodejs-using-postgresql/issues"
+  },
+  "homepage": "https://github.com/rubicon2/odin-nodejs-using-postgresql#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "express-validator": "^7.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.11.1",
+    "eslint": "^9.11.1",
+    "eslint-config-prettier": "^9.1.0",
+    "globals": "^15.10.0",
+    "prettier": "^3.3.3"
+  }
+}
