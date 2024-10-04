@@ -5,7 +5,12 @@
     <h1>User List</h1>
     <ul>
       <% users.forEach(user => { %>
-        <li><%= user.username %></li>
+        <li>
+          <%= user.username %>
+          <span>
+            <a href="/<%= user.id %>/delete">Delete</a>
+          </span>
+        </li>
       <% }) %>
     </ul>
     <a href="/new">Add User</a>
