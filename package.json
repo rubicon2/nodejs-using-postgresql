@@ -18,6 +18,7 @@
   "homepage": "https://github.com/rubicon2/odin-nodejs-using-postgresql#readme",
   "dependencies": {
     "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
     "express": "^4.21.0",
     "express-validator": "^7.2.0"
   },
