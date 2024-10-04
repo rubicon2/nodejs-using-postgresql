@@ -9,6 +9,18 @@ async function getAllUsernames() {
   }
 }
 
+async function searchUsernames(searchTerm) {
+  try {
+    const { rows } = await pool.query(
+      `SELECT * FROM usernames WHERE username ~* $1`,
+      [searchTerm],
+    );
+    return rows;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 async function insertUsername(username) {
   try {
     // When passing the username in via the second argument's array, pg will take care of escaping the input.
@@ -31,6 +43,7 @@ async function deleteUsername(id) {
 
 module.exports = {
   getAllUsernames,
+  searchUsernames,
   insertUsername,
   deleteUsername,
 };

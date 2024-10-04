@@ -3,6 +3,7 @@
   <%- include('partials/head.ejs') %>
   <body>
     <h1>User List</h1>
+    <% if (locals.users && users.length > 0) { %>
     <ul>
       <% users.forEach(user => { %>
         <li>
@@ -13,6 +14,13 @@
         </li>
       <% }) %>
     </ul>
+    <% } else { %>
+      <p>No users found.</p>
+    <% } %>
     <a href="/new">Add User</a>
+    <form action="/" method="get" id="search-form">
+      <input type="text" name="search" aria-labelledby="search-button" value="<%= searchTerm %>">
+      <button type="submit" id="search-button">Search</button>
+    </form>
   </body>
 </html>
