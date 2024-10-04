@@ -29,4 +29,11 @@ app.use((req, res) => {
   res.render('404', { title: '404 - Page not found' });
 });
 
+// Error handling.
+// eslint-disable-next-line no-unused-vars -- need all 4 arguments for this to be recognised as error handling function.
+app.use((error, req, res, next) => {
+  console.error(error.stack);
+  res.render('error', { title: 'Error', error });
+});
+
 app.listen(PORT, () => console.log('Listening on port', PORT));
