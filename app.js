@@ -24,4 +24,9 @@ app.get('/:id/delete', (req, res) => {
   });
 });
 
+// 404.
+app.use((req, res) => {
+  res.render('404', { title: '404 - Page not found' });
+});
+
 app.listen(PORT, () => console.log('Listening on port', PORT));
