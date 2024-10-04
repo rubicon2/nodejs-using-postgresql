@@ -1,11 +1,13 @@
+const { insertUsername } = require('../db/queries');
+
 function newGet(req, res) {
-  console.log('Display form to user - WIP');
   res.render('usernameForm', { title: 'New Username' });
 }
 
 function newPost(req, res) {
-  console.log('username to be saved :', req.body.username);
-  res.send('Accept form data!');
+  insertUsername(req.body.username).then(() => {
+    res.status(303).redirect('/');
+  });
 }
 
 module.exports = {
