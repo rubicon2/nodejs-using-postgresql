@@ -41,9 +41,18 @@ async function deleteUsername(id) {
   }
 }
 
+async function deleteAllUsernames() {
+  try {
+    await pool.query('DELETE FROM usernames');
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 module.exports = {
   getAllUsernames,
   searchUsernames,
   insertUsername,
   deleteUsername,
+  deleteAllUsernames,
 };

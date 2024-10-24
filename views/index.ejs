@@ -9,7 +9,7 @@
         <li>
           <%= user.username %>
           <span>
-            <a href="/<%= user.id %>/delete">Delete</a>
+            <a href="/delete/<%= user.id %>">Delete</a>
           </span>
         </li>
       <% }) %>
@@ -18,6 +18,9 @@
       <p>No users found.</p>
     <% } %>
     <a href="/new">Add User</a>
+    <form action="/delete" method="get" id="delete-all-users-form">
+      <button type="submit" id="delete-all-users-button">Delete all users</button>
+    </form>
     <form action="/" method="get" id="search-form">
       <input type="text" name="search" aria-labelledby="search-button" value="<%= searchTerm %>">
       <button type="submit" id="search-button">Search</button>

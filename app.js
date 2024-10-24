@@ -2,11 +2,8 @@ const express = require('express');
 require('dotenv').config();
 
 const newRouter = require('./routers/newRouter');
-const {
-  getAllUsernames,
-  deleteUsername,
-  searchUsernames,
-} = require('./db/queries');
+const deleteRouter = require('./routers/deleteRouter');
+const { getAllUsernames, searchUsernames } = require('./db/queries');
 
 const PORT = process.env.PORT || 8080;
 
@@ -15,6 +12,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
 app.use('/new', newRouter);
+app.use('/delete', deleteRouter);
 
 app.get('/', (req, res) => {
   const searchTerm = req.query.search;
@@ -27,12 +25,6 @@ app.get('/', (req, res) => {
       res.render('index', { title: 'User List', searchTerm, users });
     });
   }
-});
-
-app.get('/:id/delete', (req, res) => {
-  deleteUsername(req.params.id).then(() => {
-    res.status(303).redirect('/');
-  });
 });
 
 // 404.
